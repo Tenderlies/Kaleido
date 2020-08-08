@@ -1,0 +1,43 @@
+server:
+  port: 58080
+  jetty:
+    acceptors: 2
+    selectors: 4
+    worker: 8
+    max-http-post-size: 1048576
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /kaleido
+spring:
+  redis:
+    databse: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 5000ms
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/kaleido?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    max-idle: 8
+    min-idle: 4
+    initial-size: 4
+    driver-class-name: com.mysql.cj.jdbc.Driver #在6.0以上要用 com.mysql.cj.jdbc.Driver
+    max-wait: 10000
+    hikari:
+      connection-test-query: SELECT 1
+      connection-timeout: 600000
+      maximum-pool-size: 500
+      max-lifetime: 1800000
+      minimum-idle: 20
+      validation-timeout: 3000
+      idle-timeout: 60000
+      connection-init-sql: SET NAMES utf8mb4
+  jpa:
+    database: mysql
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.tosh.kaleido.model.entity.**
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
