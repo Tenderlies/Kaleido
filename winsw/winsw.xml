@@ -1,0 +1,8 @@
+<service>
+  <id>zookeeper</id>
+  <name>ZooKeeper</name>
+  <description>This service runs zookeeper continuous integration system.</description>
+  <executable>D:/env/zookeeper/bin/zkServer.cmd</executable>
+  <log mode="roll"></log>
+  <logpath>D:/env/zookeeper/logs</logpath>
+</service>
