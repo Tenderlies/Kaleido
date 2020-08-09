@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+	<springProperty name="serviceName" source="spring.application.name" scope="context" defaultValue="myService" />
+	<!-- 
+		<springProperty name="logLevel" source="logging.level.root" />
+	-->
+	<property name="logPath" value="/var/log/${serviceName}" />
+	<property name="logPattern" value="[%p]-[%d{MM-dd HH:mm:ss.SSS}]-[%t]-[%c{32}.%M]: %m%n" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${logPattern}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/${serviceName}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logPath}/${serviceName}-%d{yyyyMMdd}-%i.zip
+			</fileNamePattern>
+			<maxFileSize>128MB</maxFileSize>
+			<maxHistory>14</maxHistory>
+			<totalSizeCap>4GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${logPattern}</pattern>
+		</encoder>
+	</appender>
+
+	<springProfile name="dev">
+		<root level="INFO">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<springProfile name="prod">
+		<root level="INFO">
+			<appender-ref ref="ROLLING_FILE" />
+		</root>
+	</springProfile>
+</configuration>
