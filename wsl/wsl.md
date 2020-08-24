@@ -6,6 +6,17 @@
 ubuntu1804.exe config --default-user root
 ```
 
+## 配置 Git
+
+```shell
+git config --global core.autocrlf true
+git config --global core.autolf true
+git config --global core.safecrlf true
+git config --global credential.helper store
+git config --global user.email ""
+git config --global user.name ""
+```
+
 ## 安装 powerline 字体
 
 ```shell
