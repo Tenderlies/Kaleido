@@ -1,17 +1,26 @@
 # WSL
 
+## 安装 powerline 字体
+
+```bash
+git clone https://github.com/powerline/fonts.git
+```
+
+Run install.ps1 with powershell
+
 ## 更改默认命令及用户
 
 ```shell
 wsl -s ubuntu-18.04
 wsl config --default-user root
+wsl --set-version Ubuntu-18.04 2
 ```
 
 ## 配置镜像
 
 `/etc/apt/sources.list`
 
-1.`bionic`
+1. ubuntu-18.04 `bionic`
 
   ```list
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
@@ -26,7 +35,7 @@ deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe 
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
 ```
 
-2.`focal`
+2. ubuntu-20.04 `focal`
 
   ```list
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
@@ -52,20 +61,48 @@ git config --global user.email ""
 git config --global user.name ""
 ```
 
-## 安装 powerline 字体
+## 安装常用软件
 
 ```shell
-git clone https://github.com/powerline/fonts.git
+apt-get install -y python-pip sshpass openjdk-11-jdk maven
+
+pip install exodus-bundler
 ```
 
-Run install.ps1 with powershell
+### 配置 pip
+
+```shell
+cat > ~/.pip/pip.conf <<"EOF"
+[global]
+index-url = https://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
+EOF
+```
+
+### 配置 mvn
+
+`vi ~/.m2/settings.xml`
+
+```shell
+<localRepository>/mnt/d/env/maven/repo</localRepository>
+<mirror>
+  <id>aliyun</id>
+  <mirrorOf>central</mirrorOf>
+  <name>aliyun</name>
+  <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+</mirror>
+```
 
 ## 安装 ZSH 套件
 
 ```shell
 apt install -y zsh
+
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 wget https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme -O $ZSH_CUSTOM/themes/bullet-train.zsh-theme
+
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
@@ -97,6 +134,10 @@ plugins=(
   )
 ```
 
+```shell
+. ~/.zshrc
+```
+
 ## 配置 Cmder WSL::zsh
 
 ### WSL2
@@ -106,8 +147,6 @@ C:\\WINDOWS\\System32\\wsl.exe
 ```
 
 ### WSL1
-
-`-t zsh`
 
 ```shell
 set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" & %ConEmuBaseDirShort%\conemu-cyg-64.exe --wsl -cur_console:pm:/mnt -t zsh
@@ -126,7 +165,7 @@ sudo apt install xfce4 xfce4-terminal
 
 ```bat
 start /B x410.exe /desktop
-ubuntu1804 run "if [ -z \"$(pidof xfce4-session)\" ]; then export DISPLAY=127.0.0.1:0.0; xfce4-session; pkill '(gpg|ssh)-agent'; fi;"
+ubuntu1804 run "if [ -z \"$(pidof xfce4-session)\" ]; then xfce4-session --display=127.0.0.1:0.0; pkill '(gpg|ssh)-agent'; fi;"
 ```
 
 ### 配置 x140.vbs
