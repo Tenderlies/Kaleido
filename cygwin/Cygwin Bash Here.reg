@@ -5,4 +5,4 @@ Windows Registry Editor Version 5.00
 "Icon"="D:\\env\\cygwin\\bin\\mintty.exe"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\cygwin_bash\command]
-@="D:\\env\\cygwin\\bin\\mintty.exe -i D:\\env\\cygwin\\Cygwin.ico D:\\env\\cygwin\\bin\\bash.exe --login -c \"cd '%V'; exec bash -rcfile ~/.bashrc\""
+@="D:\\env\\cygwin\\bin\\mintty.exe -i D:\\env\\cygwin\\Cygwin.ico D:\\env\\cygwin\\bin\\bash.exe --login -c \"cd '%V'; exec zsh\""

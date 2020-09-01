@@ -64,9 +64,19 @@ git config --global user.name ""
 ## 安装常用软件
 
 ```shell
-apt-get install -y python-pip sshpass openjdk-11-jdk maven
+apt update && apt -y upgrade
+apt install -y dos2unix python-pip sshpass openjdk-11-jdk
 
 pip install exodus-bundler
+```
+
+## 卸载软件
+
+```shell
+dpkg -l | grep **
+apt remove **
+dpkg --purge **
+apt autoremove
 ```
 
 ### 配置 pip
@@ -104,6 +114,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 wget https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme -O $ZSH_CUSTOM/themes/bullet-train.zsh-theme
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 ```
 
 ## 配置 ~/.zshrc
@@ -157,7 +168,6 @@ set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" & %ConEmuBaseDirShort%\conemu-cyg-64.
 ### 安装 xfce 桌面
 
 ```shell
-sudo apt update && sudo apt -y upgrade
 sudo apt install xfce4 xfce4-terminal
 ```
 
