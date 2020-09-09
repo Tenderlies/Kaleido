@@ -17,7 +17,9 @@ curl、git、lynx、make、mingw-gcc、ming-g++、pip、python、vim、wget、zs
 ```shell
 lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
 
-install apt-cyg /bin
+install apt-cyg /usr/bin
+
+apt-cyg mirror http://mirrors.163.com/cygwin
 ```
 
 `alias apt="apt-cyg"`
