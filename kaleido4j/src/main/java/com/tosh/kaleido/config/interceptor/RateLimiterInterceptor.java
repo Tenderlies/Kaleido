@@ -1,4 +1,4 @@
-package com.tosh.kaleido.interceptor;
+package com.tosh.kaleido.config.interceptor;
 
 import java.util.concurrent.TimeUnit;
 
