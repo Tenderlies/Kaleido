@@ -7,7 +7,7 @@
 ## 安装常用软件
 
 ```text
-curl、git、lynx、make、mingw-gcc、ming-g++、pip、python、vim、wget、zsh
+curl、git、inetutils、lynx、make、mingw-gcc、ming-g++、pip、python、vim、wget、zsh
 ```
 
 `alias vi="vim"`
