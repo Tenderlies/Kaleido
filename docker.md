@@ -1,5 +1,18 @@
 # Docker
 
+## 安装
+
+### 一键安装
+
+```shell
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
+
+```shell
+curl -sSL https://get.daocloud.io/docker | sh
+```
+
+
 ## 配置
 
 ## 容器

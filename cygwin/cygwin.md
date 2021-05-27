@@ -7,7 +7,7 @@
 ## 安装常用软件
 
 ```text
-curl、git、inetutils、lynx、make、mingw-gcc、ming-g++、pip、python、vim、wget、zsh
+automake、curl、gcc-core、git、gcc-g++、inetutils、lynx、make、mingw-gcc、ming-g++、patch、pip、python、vim、wget、zsh
 ```
 
 `alias vi="vim"`
@@ -23,6 +23,18 @@ apt-cyg mirror http://mirrors.163.com/cygwin
 ```
 
 `alias apt="apt-cyg"`
+
+
+## 安装 netcat
+
+```
+tar xvf netcat-0.7.1.tar.gz
+patch -p0 < netcat-cygwin.patch
+cd netcat-0.7.1
+./configure --build=i686
+make
+make install 
+```
 
 ## 配置 vim
 
