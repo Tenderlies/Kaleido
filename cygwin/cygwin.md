@@ -107,9 +107,16 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ## 配置 git
 
+```shell 可选
+git config --global http.proxy http://127.0.0.1:1081
+git config --global http.sslVerify false
+```
+
 ```shell
 git config --global core.autocrlf true
-git config --global core.autolf true
-git config --global core.safecrlf true
+git config --global core.autolf false
+git config --global core.safecrlf false
 git config --global credential.helper store
+git config --global --add oh-my-zsh.hide-dirty 1
+git config --global --add oh-my-zsh.hide-status 0
 ```
