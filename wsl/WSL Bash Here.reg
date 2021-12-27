@@ -1,8 +1,7 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\wsl_bash]
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bash_wsl]
 @="WSL Bash Here"
-"Icon"="C:\\Program Files\\WindowsApps\\CanonicalGroupLimited.Ubuntu18.04onWindows_1804.2020.423.0_x64__79rhkp1fndgsc\\ubuntu1804.exe"
-
-[HKEY_CLASSES_ROOT\Directory\Background\shell\wsl_bash\command]
-@="ubuntu1804.exe -c \"bash\""
+"Icon"="C:\\Windows\\System32\\wsl.exe"
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bash_wsl\command]
+@="wsl -e \"zsh\""

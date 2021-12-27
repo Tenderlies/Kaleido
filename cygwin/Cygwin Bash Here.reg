@@ -1,8 +1,8 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\cygwin_bash]
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bash_cygwin]
 @="Cygwin Bash Here"
 "Icon"="D:\\env\\cygwin\\bin\\mintty.exe"
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\cygwin_bash\command]
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bash_cygwin\command]
 @="D:\\env\\cygwin\\bin\\mintty.exe --dir '%V' -i D:\\env\\cygwin\\Cygwin.ico D:\\env\\cygwin\\bin\\zsh.exe --login"

@@ -37,7 +37,15 @@ curl -sSL https://get.daocloud.io/docker | sh
 
 ### 创建 Redis
 
+```shell
 docker run --name redis -d -v /d/env/docker-volume/redis:/data -p 6379:6379 redis redis-server --appendonly yes
+```
+
+### 创建 Postgres
+
+```shell
+docker run -d --name=postgresql --restart=always -e POSTGRES_PASSWORD=10 -e POSTGRES_HOST_AUTH_METHOD=trust -p 5432:5432 -v /mnt/e/Docker/volumes/postgresql:/var/lib/postgresql postgres:13.3
+```
 
 ## MiniKube
 
